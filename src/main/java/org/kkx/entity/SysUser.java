@@ -1,33 +1,42 @@
 package org.kkx.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
-
-import java.time.OffsetDateTime;
 
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "sys_user")
-public class SysUser {
+public class SysUser extends BaseEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", nullable = false)
-    private Integer userId;
+    private Long userId;
 
     @Column(name = "user_name", nullable = false, length = Integer.MAX_VALUE)
     private String userName;
 
-    @ColumnDefault("now()")
-    @Column(name = "update_time")
-    private OffsetDateTime updateTime;
+    @Column()
+    private String description;
 
-    @ColumnDefault("now()")
-    @Column(name = "create_time")
-    private OffsetDateTime createTime;
+    @Column(nullable = false)
+    private String password;
+
+    @Column()
+    private String status;
+
+    @Column()
+    private String email;
+
+    @Column()
+    private String phone;
+
+    @Column(name = "dept_id")
+    private String deptId;
 
 }

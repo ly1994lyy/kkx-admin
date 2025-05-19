@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class SysRoleService {
@@ -16,5 +18,9 @@ public class SysRoleService {
     public Page<SysRole> findAll(int pageNumber, int pageSize) {
         PageRequest pageRequest = PageRequest.of(pageNumber, pageSize);
         return sysRoleRepository.findAll(pageRequest);
+    }
+
+    public SysRole saveRole(SysRole role) {
+        return sysRoleRepository.save(role);
     }
 }

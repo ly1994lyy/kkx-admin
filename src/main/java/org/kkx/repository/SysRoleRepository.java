@@ -1,7 +1,7 @@
 package org.kkx.repository;
 
 import org.kkx.entity.SysRole;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SysRoleRepository extends PagingAndSortingRepository<SysRole, Integer> {
+public interface SysRoleRepository extends JpaRepository<SysRole, Long> {
 }
