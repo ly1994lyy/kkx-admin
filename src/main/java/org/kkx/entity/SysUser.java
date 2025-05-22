@@ -36,7 +36,8 @@ public class SysUser extends BaseEntity {
     @Column()
     private String phone;
 
-    @Column(name = "dept_id")
-    private String deptId;
+    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH},optional = false)
+    @JoinColumn(name = "dept_id")
+    private SysDept department;
 
 }

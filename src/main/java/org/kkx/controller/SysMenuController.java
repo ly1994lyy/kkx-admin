@@ -1,5 +1,6 @@
 package org.kkx.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.websocket.server.PathParam;
 import org.kkx.entity.SysMenu;
 import org.kkx.service.SysMenuService;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Tag(name = "菜单模块")
 public class SysMenuController {
     @Autowired
     private SysMenuService sysMenuService;

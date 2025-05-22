@@ -3,6 +3,8 @@ package org.kkx.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -20,4 +22,7 @@ public class SysDept extends BaseEntity {
 
     @Column()
     private String description;
+
+    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<SysUser> members;
 }

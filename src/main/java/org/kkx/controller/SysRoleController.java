@@ -1,5 +1,6 @@
 package org.kkx.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.websocket.server.PathParam;
 import org.kkx.entity.SysRole;
 import org.kkx.service.SysRoleService;
@@ -10,9 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
+@Tag(name = "角色模块")
 public class SysRoleController {
     @Autowired
     private SysRoleService sysRoleService;
