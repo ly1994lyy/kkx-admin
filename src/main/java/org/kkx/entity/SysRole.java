@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -24,5 +26,13 @@ public class SysRole extends BaseEntity {
     @Column()
     private String description;
 
+    @ManyToMany(mappedBy = "roles")
+    private List<SysUser> users;
+
+    @ManyToMany
+    private List<SysMenu> menus;
+
+    @ManyToMany
+    private List<SysPermission> permissions;
 
 }

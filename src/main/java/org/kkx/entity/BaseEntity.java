@@ -10,6 +10,10 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
+/**
+ * @author LY
+ * @date 2025/05/27
+ */
 @Getter
 @Setter
 @MappedSuperclass

@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -18,7 +20,7 @@ public class SysUser extends BaseEntity {
     @Column(name = "user_id", nullable = false)
     private Long userId;
 
-    @Column(name = "user_name", nullable = false, length = Integer.MAX_VALUE)
+    @Column(name = "user_name", nullable = false)
     private String userName;
 
     @Column()
@@ -39,5 +41,8 @@ public class SysUser extends BaseEntity {
     @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH},optional = false)
     @JoinColumn(name = "dept_id")
     private SysDept department;
+
+    @ManyToMany
+    private List<SysRole> roles;
 
 }

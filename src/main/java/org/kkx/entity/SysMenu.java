@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -18,7 +20,7 @@ public class SysMenu extends BaseEntity {
     private String menuName;
 
     @Column(name = "parent_id")
-    private Integer parentId;
+    private Long parentId;
 
     @Column(name = "path")
     private String path;
@@ -31,5 +33,8 @@ public class SysMenu extends BaseEntity {
 
     @Column()
     private String description;
+
+    @ManyToMany(mappedBy = "menus")
+    private List<SysRole> roles;
 
 }
