@@ -7,17 +7,39 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
-public class SysRoleService {
+public class SysRoleService implements BaseService<SysRole> {
     @Autowired
     private SysRoleRepository sysRoleRepository;
 
+    @Override
     public Page<SysRole> findAll(int pageNumber, int pageSize) {
         PageRequest pageRequest = PageRequest.of(pageNumber, pageSize);
         return sysRoleRepository.findAll(pageRequest);
     }
 
-    public SysRole saveRole(SysRole role) {
-        return sysRoleRepository.save(role);
+    @Override
+    public SysRole createOne(SysRole sysRole) {
+        return sysRoleRepository.save(sysRole);
     }
+
+    @Override
+    public SysRole updateOne(SysRole sysRole) {
+        Optional<SysRole> role = findOneById(sysRole.getRoleId());
+        role.ifPresent(value -> sysRole.setRoleId(value.getRoleId()));
+        return  sysRoleRepository.save(sysRole);
+    }
+
+    @Override
+    public void deleteOneById(Long id) {
+        sysRoleRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<SysRole> findOneById(Long id) {
+        return sysRoleRepository.findById(id);
+    }
+
 }
