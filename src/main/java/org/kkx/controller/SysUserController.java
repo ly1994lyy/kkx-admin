@@ -33,7 +33,7 @@ public class SysUserController {
 
     @PutMapping("")
     @Operation(summary = "更新用户")
-    public SysUser update(SysUser user) {
+    public SysUser update(@RequestBody SysUser user) {
         return sysUserService.updateOne(user);
     }
 

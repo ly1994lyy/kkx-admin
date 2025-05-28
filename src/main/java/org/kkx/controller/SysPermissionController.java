@@ -19,7 +19,7 @@ public class SysPermissionController {
     @Autowired
     private SysPermissionService sysPermissionService;
 
-    @GetMapping("permission")
+    @GetMapping("")
     @Operation(summary = "分页查询权限")
     public Page<SysPermission> getPermissions(@PathParam("page") int page, @PathParam("size") int size) {
         return sysPermissionService.findAll(page,size);
@@ -27,13 +27,13 @@ public class SysPermissionController {
 
     @PostMapping("")
     @Operation(summary = "新增权限")
-    public SysPermission save(SysPermission sysPermission) {
+    public SysPermission save(@RequestBody SysPermission sysPermission) {
         return sysPermissionService.createOne(sysPermission);
     }
 
     @PutMapping("")
     @Operation(summary = "更新权限")
-    public SysPermission update(SysPermission sysPermission) {
+    public SysPermission update(@RequestBody SysPermission sysPermission) {
         return sysPermissionService.updateOne(sysPermission);
     }
 

@@ -19,20 +19,20 @@ public class SysRoleController {
     @Autowired
     private SysRoleService sysRoleService;
 
-    @GetMapping("role")
+    @GetMapping("")
     @Operation(summary = "分页获取角色列表")
     public Page<SysRole> getRoles(@PathParam("page") int page, @PathParam("size") int size) {
         return sysRoleService.findAll(page,size);
     }
 
-    @PostMapping("role")
+    @PostMapping("")
     @Operation(summary = "新增角色")
     public SysRole saveRole(@RequestBody SysRole role) {
         return sysRoleService.createOne(role);
     }
 
     @PutMapping("")
-    @Operation(summary = "更新菜单")
+    @Operation(summary = "更新角色")
     public SysRole update(SysRole role) {
         return sysRoleService.updateOne(role);
     }

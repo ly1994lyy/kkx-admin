@@ -26,13 +26,13 @@ public class SysMenuController {
 
     @PostMapping("")
     @Operation(summary = "新增菜单")
-    public SysMenu save(SysMenu sysMenu) {
+    public SysMenu save(@RequestBody SysMenu sysMenu) {
         return sysMenuService.createOne(sysMenu);
     }
     
     @PutMapping("")
     @Operation(summary = "更新菜单")
-    public SysMenu update(SysMenu sysMenu) {
+    public SysMenu update(@RequestBody SysMenu sysMenu) {
         return sysMenuService.updateOne(sysMenu);
     }
 
